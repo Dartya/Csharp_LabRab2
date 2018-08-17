@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.BitConverter;   //требуется для выполнения задания №4
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -99,7 +100,19 @@ namespace Csharp_LabRab2
                 if (x > 5) {
                 Console.WriteLine("\nСледующее выражение вызовет исключение System.InvalidCastException, которое будет описано блоком catch:\n((short)obj1 + dI - iD3) * 2;  - это вызвано вследствии неверного приведения типа Object.\n");
                 double result2 = ((short)obj1 + dI - iD3) * 2; 
+                } 
+                
+                // *** ЗАДАНИЕ 4 ***
+                
+                byte[] aByte = new byte[4] {0x0A, 0x0B, 0x00, 0x00}; //объявление массива байт
+                Console.WriteLine("\nВывод массива байт: ");
+                for (int j = 0; j<aByte.Length; j++){
+                    Console.WriteLine(aByte[j]);
                 }
+
+                Console.WriteLine("");
+                int y = ToInt32(aByte, 0);  //используем static System.BitConverter.ToInt32(массив байт, индекс первого байта)
+                Console.WriteLine("Массив байт aByte = {0x0A, 0x0B, 0x00, 0x00} после преобразования в int = "+y); //0B0A = 2826
 
             }
             catch (Exception e){
@@ -109,8 +122,6 @@ namespace Csharp_LabRab2
                 Console.Write("Press <Enter>");
                 Console.ReadLine();
             }
-            
-
         }
     }
 }
