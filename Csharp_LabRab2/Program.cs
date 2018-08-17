@@ -96,7 +96,7 @@ namespace Csharp_LabRab2
 
                 //Еще одна возможность показать еще один пример ошибки приведения типов с отрабатыванием исключения System.InvalidCastException
                 Console.WriteLine("Для того, чтобы вывести ошибку, введите число, больше 5. Чтобы пропустить, введите число, не больше 5.");
-                int x = Int32.Parse(Console.ReadLine());
+                int x = Int32.Parse(Console.ReadLine());        //выполнено задание 5 ранее по тексту)))
                 if (x > 5) {
                 Console.WriteLine("\nСледующее выражение вызовет исключение System.InvalidCastException, которое будет описано блоком catch:\n((short)obj1 + dI - iD3) * 2;  - это вызвано вследствии неверного приведения типа Object.\n");
                 double result2 = ((short)obj1 + dI - iD3) * 2; 
@@ -113,6 +113,9 @@ namespace Csharp_LabRab2
                 Console.WriteLine("");
                 int y = ToInt32(aByte, 0);  //используем static System.BitConverter.ToInt32(массив байт, индекс первого байта)
                 Console.WriteLine("Массив байт aByte = {0x0A, 0x0B, 0x00, 0x00} после преобразования в int = "+y); //0B0A = 2826
+
+                // *** ЗАДАНИЕ 5 ***
+                // см. строку 94 int x = Int32.Parse(Console.ReadLine()); 
 
             }
             catch (Exception e){
