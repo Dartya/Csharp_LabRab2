@@ -82,6 +82,25 @@ namespace Csharp_LabRab2
                     Console.WriteLine(aStr[iter]);
                 }
 
+                // *** ЗАДАНИЕ 3 ***
+
+                Object obj1 = i;    //переменной типа Object можно присвоить любое значение, в данном случае int i упакована до Object
+                Object obj2 = b2;   //хоть целочисленное, хоть булевое
+                Object obj3 = str4; //хоть String
+
+                //в выражении ниже происходит распаковка Object до типа int, а затем автоматическое приведение к значению double 
+                double result1 = ((int)obj1 + dI - iD3) * 2;
+                Console.WriteLine("\n((int)obj1 + dI - iD3) * 2 = "+result1);  //(4 + 4 - 4) * 2 = 8
+                //итого в данном примере осуществлены одна успешная запаковка и одна успешная распаковка значения в/из Object
+
+                //Еще одна возможность показать еще один пример ошибки приведения типов с отрабатыванием исключения System.InvalidCastException
+                Console.WriteLine("Для того, чтобы вывести ошибку, введите число, больше 5. Чтобы пропустить, введите число, не больше 5.");
+                int x = Int32.Parse(Console.ReadLine());
+                if (x > 5) {
+                Console.WriteLine("\nСледующее выражение вызовет исключение System.InvalidCastException, которое будет описано блоком catch:\n((short)obj1 + dI - iD3) * 2;  - это вызвано вследствии неверного приведения типа Object.\n");
+                double result2 = ((short)obj1 + dI - iD3) * 2; 
+                }
+
             }
             catch (Exception e){
                 Console.WriteLine(e.ToString());
