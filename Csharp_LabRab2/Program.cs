@@ -117,6 +117,28 @@ namespace Csharp_LabRab2
                 // *** ЗАДАНИЕ 5 ***
                 // см. строку 94 int x = Int32.Parse(Console.ReadLine()); 
 
+                // *** ЗАДАНИЕ 6 ***
+                //программу будем выполнять здесь
+
+                Console.WriteLine("");
+                string inputstr;
+
+                Console.WriteLine("Введите строку, подлежащую разбору:");
+                inputstr = Console.ReadLine();
+                char[] aChar = inputstr.ToCharArray();  //переводим введенную строку в массив символов
+                
+                int iterat = 0;                             //итератор для красивого вывода строки в следующем цикле
+                foreach (char letter in aChar){             //цикл - для каждого символа letter в массиве aChar выполнить:
+                    int value = Convert.ToInt32(letter);    //объявить новый int value и присвоить ему int значение очередного letter
+                    Console.WriteLine("aChar["+iterat+"] = "+value);//вывести value
+                    string hexOutput = String.Format("{0:X}", value);//данный value перевести в hex-код, записать в строку
+                    Console.WriteLine("Hexadecimal value of {0} is {1}", letter, hexOutput);//вывести строку с hex-кодом
+                    iterat++;
+                }
+
+                for (int j = 0; j < aChar.Length; j++){     //тот же самый цикл, но через for
+                    Console.WriteLine("aChar["+j+"] - "+aChar[j]+" in dec = "+Convert.ToInt32(aChar[j])+", in hex = "+String.Format("{0:X}", Convert.ToInt32(aChar[j])));
+                }
             }
             catch (Exception e){
                 Console.WriteLine(e.ToString());
